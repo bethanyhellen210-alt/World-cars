@@ -1,10 +1,9 @@
-import { PrismaClient }
-from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 async function main() {
-
+  await prisma.car.deleteMany();
   await prisma.car.create({
     data: {
       title: "BMW X5",
@@ -16,11 +15,10 @@ async function main() {
       price: 65000,
       fuelType: "Diesel",
       transmission: "Automatic",
-      description:
-        "Excellent condition",
-    },
+      description: "Premium SUV in excellent condition.",
+      featured: true
+    }
   });
-
 }
 
-main();
+main().finally(async () => { await prisma.$disconnect(); });
