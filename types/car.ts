@@ -1,9 +1,1 @@
-export interface Car {
-  id: string;
-  title: string;
-  price: number;
-  image: string;
-  country: string;
-  year: number;
-  mileage: number;
-}
+export type Car = { id:string; title:string; make:string; model:string; year:number; mileage:number; country:string; price:number; fuelType:string; transmission:string; description:string; featured?:boolean; image?:string; images?:{id:string;url:string}[]; videos?:{id:string;url:string}[] };
