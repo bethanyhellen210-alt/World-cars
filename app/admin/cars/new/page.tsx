@@ -1,0 +1,2 @@
+import Link from "next/link"; import Navbar from "@/components/Navbar";
+export default function AddVehiclePage(){return <><Navbar/><main className="mx-auto max-w-3xl px-4 py-12"><h1 className="text-4xl font-bold">Add vehicle</h1><p className="mt-3 text-slate-500">Production vehicle creation requires an authenticated admin action and configured database.</p><Link href="/admin/cars" className="mt-6 inline-block rounded-lg bg-slate-900 px-4 py-2 text-white">Back to vehicles</Link></main></>}
