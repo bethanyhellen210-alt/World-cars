@@ -1,0 +1,3 @@
+import Navbar from "@/components/Navbar"; import CarCard from "@/components/CarCard"; import { prisma } from "@/lib/prisma";
+export const dynamic="force-dynamic";
+export default async function CarsPage(){const cars=await prisma.car.findMany({include:{images:true,videos:true},orderBy:{createdAt:"desc"}}); return <><Navbar/><main className="mx-auto max-w-7xl px-4 py-12"><h1 className="text-4xl font-bold">All vehicles</h1><p className="mt-2 text-slate-500">{cars.length} vehicle(s) listed.</p><div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{cars.map(car=><CarCard key={car.id} car={car}/>)}</div></main></>}
